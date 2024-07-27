@@ -33,9 +33,9 @@ jobs:
         run: npm install
 
       - name: migrate database
-        run: npm run startDocker
         env:
           NODE_ENV: "testing"
+        run: npm run startDocker
 
       - name: Run data
         run: npm run test
