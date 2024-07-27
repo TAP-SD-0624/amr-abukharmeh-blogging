@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  postgresdb:
+    image: postgres:13
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345
+      - POSTGRES_DB=social
+    ports:
+      - 5432:5432
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  app:
+    depends_on:
+      - postgresdb
+    build: ./
+    restart: unless-stopped
+    ports:
+      - 8080:3000
+    environment:
+      - DB_HOST=postgresdb
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=12345
+      - DB_DATABASE=social
+      - DB_PORT=5432
+      - DB_DIALECT:postgres
+    stdin_open: true
+    tty: true
+
+volumes:
+  db-data:
