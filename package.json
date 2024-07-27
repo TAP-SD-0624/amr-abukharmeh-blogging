@@ -7,6 +7,7 @@
     "build": "npx tsc",
     "dev": "nodemon src/server.ts",
     "startDocker": "sequelize db:migrate && sequelize db:seed:all && nodemon src/server.ts",
+    "githubTest": "sequelize db:migrate && sequelize db:seed:all && npm run test",
     "startAll": "sequelize db:create && sequelize db:migrate && sequelize db:seed:all && nodemon src/server.ts"
   },
   "keywords": [],

@@ -40,7 +40,4 @@ jobs:
           DB_TESTING_DIALECT: "postgres"
           DB_TESTING_HOST: "localhost"
           DB_TESTING_PORT: "5432"
-        run: npm run startDocker
-
-      - name: Run data
-        run: npm run test
+        run: npm run githubTest
