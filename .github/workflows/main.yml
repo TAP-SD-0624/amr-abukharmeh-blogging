@@ -34,7 +34,12 @@ jobs:
 
       - name: migrate database
         env:
-          NODE_ENV: "testing"
+          username: process.env.DB_TESTING_USERNAME || "postgres",
+          password: process.env.DB_TESTING_PASSWORD || "12345",
+          database: process.env.DB_TESTING_DATABASE || "testing",
+          dialect: process.env.DB_TESTING_DIALECT || "postgres",
+          host: process.env.DB_TESTING_HOST || "localhost",
+          port: process.env.DB_TESTING_PORT || "5432",
         run: npm run startDocker
 
       - name: Run data
