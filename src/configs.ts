@@ -14,6 +14,9 @@ interface serverInterFace {
 export let serverConfig: serverInterFace = {
   port: Number(process.env.SERVER_PORT),
 };
+console.log(process.env.NODE_ENV);
+console.log(process.env.DB_TESTING_USERNAME);
+
 export let configs: configsInterface;
 if (process.env.NODE_ENV === "test") {
   configs = {
@@ -28,7 +31,7 @@ if (process.env.NODE_ENV === "test") {
   configs = {
     username: process.env.DB_USERNAME || "postgres",
     password: process.env.DB_PASSWORD || "12345",
-    database: process.env.DB_DATABASE || "social",
+    database: process.env.DB_DATABASE || "testing",
     dialect: process.env.DB_DIALECT || "postgres",
     host: process.env.DB_HOST || "localhost",
     port: process.env.DB_PORT || "5432",

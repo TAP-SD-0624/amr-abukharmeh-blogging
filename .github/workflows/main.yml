@@ -34,12 +34,12 @@ jobs:
 
       - name: migrate database
         env:
-          username: "postgres"
-          password: "12345"
-          database: "testing"
-          dialect: "postgres"
-          host: "localhost"
-          port: "5432"
+          DB_TESTING_USERNAME: "postgres"
+          DB_TESTING_PASSWORD: "12345"
+          DB_TESTING_DATABASE: "testing"
+          DB_TESTING_DIALECT: "postgres"
+          DB_TESTING_HOST: "localhost"
+          DB_TESTING_PORT: "5432"
         run: npm run startDocker
 
       - name: Run data
